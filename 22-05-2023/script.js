@@ -12,13 +12,13 @@ submit.setAttribute("type", "submit");
 form.className = "form";
 input.className = "text";
 submit.className = "submit";
+input.textContent = "wada";
 
 button.textContent = "click";
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   weatherData(e.srcElement[0].value).then((data) => {
-    console.log(data);
     root.append(WeatherEl(data));
   });
 });
