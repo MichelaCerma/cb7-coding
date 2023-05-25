@@ -74,7 +74,7 @@ addTodo.addEventListener("click", () => {
   if (!input.value) return;
   POST(input.value);
   todolist.push({
-    id: Math.floor(Math.random() * 10000),
+    id: Math.floor(Math.random() * 100),
     todo: input.value,
   });
 
