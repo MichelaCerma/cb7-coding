@@ -22,7 +22,7 @@ export const createList = (data) => {
 
     todolist.splice(index, 1);
     let id = data.id;
-
+    listRender();
     li.remove();
   });
   li.appendChild(deleteTodo);
