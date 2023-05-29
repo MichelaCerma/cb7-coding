@@ -1,0 +1,6 @@
+:root {
+  --color-bg: rgb(21, 32, 43);
+  --color-text: rgb(247, 249, 249);
+  --color-secondary: rgb(29, 155, 240);
+  --bg-hover: rgba(239, 243, 244, 0.1);
+}

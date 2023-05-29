@@ -1,0 +1,5 @@
+main {
+  height: 100px;
+  width: calc(100% - 280px - 361px);
+  /* background-color: red; */
+}

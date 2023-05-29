@@ -1,0 +1,25 @@
+@import url(/components/nav/nav.css);
+@import url(/components/main/main.css);
+@import url(/components/trends/trends.css);
+@import url(colors.css);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-bg);
+  margin: 0 7%;
+  display: flex;
+  /* height: 100vh; */
+}
+
+@media all and (max-width: 1024px) {
+  a {
+    display: none;
+  }
+}
