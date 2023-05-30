@@ -1,0 +1,167 @@
+.logo svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+.logo {
+  padding: 0 15px;
+  margin-top: 13px;
+  margin-bottom: 4px;
+}
+
+nav {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 270px;
+  gap: 5px;
+  /* border: 1px solid lightgray; */
+}
+wrapperLinks {
+  height: 100%;
+  display: flex;
+  justify-content: start;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 15px;
+}
+
+.select {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 15px;
+  gap: 20px;
+  margin: 0;
+}
+.select:hover,
+.logo svg:hover {
+  background-color: var(--bg-hover);
+  border-radius: 56px;
+}
+
+.select.active {
+  font-weight: bold;
+}
+
+.wrapper {
+  width: 100%;
+}
+li svg {
+  fill: var(--color-text);
+
+  width: 30px;
+  height: 30px;
+}
+
+ul a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: white;
+}
+.tweetBtn {
+  cursor: pointer;
+  font-weight: 600;
+  background-color: var(--color-secondary);
+  padding: 17px 26px;
+  width: 270px;
+  border-radius: 56px;
+  border: none;
+}
+.tweetBtn svg {
+  fill: var(--color-text);
+
+  display: none;
+  width: 30px;
+  height: 30px;
+}
+.textBtn {
+  color: var(--color-text);
+  font-size: 1.3rem;
+}
+
+/* profile */
+.profile {
+  display: flex;
+  border-radius: 50px;
+  padding: 12px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  width: 270px;
+  margin-bottom: 10px;
+}
+.profile:hover {
+  background-color: var(--bg-hover);
+}
+.profileText {
+  width: 100%;
+}
+.userName {
+  color: var(--color-text);
+}
+.userNickname {
+  font-weight: 100;
+  color: var(--user-nickname);
+}
+.profile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.profile svg {
+  fill: var(--color-text);
+  width: 28px;
+  height: 28px;
+}
+
+@media all and (max-width: 1264px) {
+  .textBtn {
+    display: none;
+  }
+  .tweetBtn {
+    margin: 0;
+    padding: 0px;
+    width: 87%;
+    height: 6%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    margin: 0;
+    display: none;
+  }
+  .tweetBtn svg {
+    display: flex;
+    width: 24px;
+    height: 24px;
+  }
+  nav {
+    display: flex;
+    align-items: flex-end;
+
+    margin-right: 1%;
+    margin-left: 2%;
+    min-width: 50px;
+    width: 60px;
+  }
+  a {
+    margin: 0;
+    display: none;
+  }
+  aside {
+  }
+}
