@@ -1,0 +1,11 @@
+aside {
+  height: 100vh;
+  width: 330px;
+  border: 1px solid lightgray;
+}
+
+@media all and (max-width: 987px) {
+  aside {
+    display: none;
+  }
+}

@@ -1,0 +1,27 @@
+@import url(./colors.css);
+@import url(./main.css);
+@import url(./sidebar.css);
+@import url(./nav.css);
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-bg);
+  /* margin: 0px 5%; */
+  display: flex;
+  justify-content: center;
+  /* height: 100vh; */
+}
+
+@media all and (max-width: 1265px) {
+  body {
+    margin: 0 2% 0 0;
+  }
+}
