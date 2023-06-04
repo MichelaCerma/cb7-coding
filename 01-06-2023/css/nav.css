@@ -17,17 +17,20 @@ nav {
   fill: white;
 }
 .logo {
+  cursor: pointer;
+
   display: flex;
   width: fit-content;
   padding: 13px;
   margin-top: 13px;
   margin-bottom: 4px;
-  transition: all 0.5s;
+  transition: all 0.2s;
   justify-content: start;
   align-items: center;
 }
 
 .wrapperLinks {
+  cursor: pointer;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -52,7 +55,7 @@ ul {
   padding: 14px 15px;
   gap: 20px;
   margin: 0;
-  transition: all 0.35s;
+  transition: all 0.1s;
 }
 .select.active {
   font-weight: bold;
@@ -111,6 +114,8 @@ ul a {
 /* profile */
 .profile {
   display: flex;
+  cursor: pointer;
+
   border-radius: 50px;
   padding: 12px;
   flex-direction: row;
@@ -146,6 +151,7 @@ ul a {
 }
 
 /* //media query */
+
 @media all and (max-width: 1264px) {
   .wrapperLinks {
     align-items: center;
@@ -188,9 +194,12 @@ ul a {
     display: none;
   }
   .profile {
-    width: 100%;
-
-    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
   }
   .profile img {
     object-fit: contain;
@@ -213,3 +222,5 @@ ul a {
     display: none;
   }
 }
+
+/* mobile */

@@ -2,7 +2,9 @@ import { createEl, genTweet, GET, postTweet, genUsers } from "../utils/fn.js";
 const main = document.querySelector(".main");
 main.appendChild(postTweet());
 const sideBar = document.querySelector(".aside");
-sideBar.append(genUsers());
+
+const wToFollow = document.querySelector(".wToUsers");
+
 let postData = [];
 let userData = [];
 const tweet = Promise.all([GET("posts"), GET("users")]);
@@ -12,28 +14,25 @@ tweet
     postData = tweets[0].posts;
     userData = tweets[1].users;
   })
-  .then(() =>
+  .then(() => {
     postData
       .map((post) => {
         post.user = userData.find((user) => user.id === post.userId);
         return post;
       })
-      .forEach((post) => main.append(genTweet(post)))
-  )
+      .forEach((post) => main.append(genTweet(post)));
+  })
   .then(() => {
-    const users = userData.filter((user) => user.id <= 6);
+    let usersFilt = userData.filter((user) => user.id <= 3);
 
-    users.forEach((user) => {
-      sideBar.append(genUsers(user));
-    });
-    return users;
+    usersFilt.forEach((user) => wToFollow.append(genUsers(user)));
+    return usersFilt;
   });
 
 const liEL = document.querySelectorAll("li");
 
 liEL.forEach((li) => {
   li.addEventListener("click", () => {
-    console.log(li);
     liEL.forEach((active) => {
       active.classList.remove("active");
     });
@@ -44,12 +43,22 @@ liEL.forEach((li) => {
 const foryou = document.querySelector(".foryou");
 const follow = document.querySelector(".following");
 
-follow.addEventListener("click", () => {
-  follow.classList.add("active");
-  foryou.classList.remove("active");
-});
-
 foryou.addEventListener("click", () => {
   foryou.classList.add("active");
   follow.classList.remove("active");
+});
+
+follow.addEventListener("click", () => {
+  foryou.classList.remove("active");
+  follow.classList.add("active");
+});
+
+const inputSearch = document.querySelector(".searchInput");
+const searchBar = document.querySelector(".searchBar");
+const searchSvg = document.querySelector(".searchSvg");
+
+inputSearch.addEventListener("input", () => {
+  searchBar.style.backgroundColor = "#273340";
+  searchBar.style.border = "1px solid #1d9bf0";
+  searchSvg.style.fill = "#1d9bf0";
 });

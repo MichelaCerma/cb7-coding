@@ -11,6 +11,9 @@ export const createEl = (el, text, ...attrs) => {
 
 const BASE_URL = "https://dummyjson.com/";
 const URL_POST = "https://dummyjson.com/posts/add";
+let number = Math.floor(Math.random() * 1000);
+let number1 = Math.floor(Math.random() * 1000);
+let number2 = Math.floor(Math.random() * 1000);
 
 export const GET = async (endpoint) => {
   const res = await fetch(BASE_URL + endpoint);
@@ -52,9 +55,7 @@ export const genTweet = (data) => {
     { name: "class", value: "profilePic" },
     {
       name: "src",
-      value:
-        data.user?.image ||
-        "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg",
+      value: data.user?.image || "https://robohash.org/lol",
     }
   );
 
@@ -105,9 +106,10 @@ export const genTweet = (data) => {
     name: "class",
     value: "reactionsContainer",
   });
+
   const heartContainer = createEl("div", "", {
     name: "class",
-    value: "heartContainer",
+    value: "heartContainer iconC ",
   });
   const heartText = createEl("p", data.reactions, {
     name: "class",
@@ -115,18 +117,73 @@ export const genTweet = (data) => {
   });
   const heart = createEl("div", "", {
     name: "class",
-    value: "heart",
+    value: "icon heart",
   });
 
-  //   const   = createEl("div", "", { name: "class", value: "container" });
+  const commentContainer = createEl("div", "", {
+    name: "class",
+    value: "commentContainer iconC",
+  });
+  const commentText = createEl("p", number1, {
+    name: "class",
+    value: "commentText",
+  });
+  const comment = createEl("div", "", {
+    name: "class",
+    value: "icon comment",
+  });
+
+  const rtContainer = createEl("div", "", {
+    name: "class",
+    value: "rtContainer iconC",
+  });
+  const rtText = createEl("p", number2, {
+    name: "class",
+    value: "rtText",
+  });
+  const rt = createEl("div", "", {
+    name: "class",
+    value: "icon rt",
+  });
+  const visualContainer = createEl("div", "", {
+    name: "class",
+    value: "visualContainer iconC",
+  });
+  const visualText = createEl("p", number, {
+    name: "class",
+    value: "visualText",
+  });
+  const visual = createEl("div", "", {
+    name: "class",
+    value: "icon visual",
+  });
+  const shareContainer = createEl("div", "", {
+    name: "class",
+    value: "shareContainer",
+  });
+
+  const share = createEl("div", "", {
+    name: "class",
+    value: "icon share",
+  });
+
   container.append(leftSide, rightSide);
   leftSide.appendChild(profilePic);
   rightSide.append(containerUser, postText, reactionsContainer);
   containerUser.append(containerUserText, dots);
   containerUserText.append(userName, userNick, date);
-  reactionsContainer.appendChild(heartContainer);
+  reactionsContainer.append(
+    commentContainer,
+    rtContainer,
+    heartContainer,
+    visualContainer,
+    shareContainer
+  );
   heartContainer.append(heart, heartText);
-
+  commentContainer.append(comment, commentText);
+  rtContainer.append(rt, rtText);
+  visualContainer.append(visual, visualText);
+  shareContainer.appendChild(share);
   return container;
 };
 
@@ -146,22 +203,41 @@ export const postTweet = () => {
     "input",
     "",
     { name: "type", value: "text" },
-    { name: "placeholder", value: "Che c'è di nuovo?" },
+    { name: "placeholder", value: "What is happening?!" },
     { name: "class", value: "InputPost" }
   );
   const tweetSubmit = createEl(
     "input",
     "",
     { name: "type", value: "submit" },
-    { name: "value", value: "Twitta" },
+    { name: "value", value: "Tweet" },
     { name: "class", value: "tweetSubmit" }
   );
+  const iconsContainer = createEl("div", "", {
+    name: "class",
+    value: "PostIcons",
+  });
+  const imageIcon = createEl("div", "", { name: "class", value: "imageIcon" });
+  const gif = createEl("div", "", { name: "class", value: "gif imageIcon" });
+  const survey = createEl("div", "", {
+    name: "class",
+    value: "survey imageIcon",
+  });
+  const smile = createEl("div", "", {
+    name: "class",
+    value: "smile imageIcon",
+  });
+  const calendar = createEl("div", "", {
+    name: "class",
+    value: "calendar imageIcon",
+  });
   form.addEventListener("submit", (e) => {
     POST(e.srcElement[0].value);
     e.preventDefault();
   });
   divPost.append(imgProfile, form);
-  form.append(postText, tweetSubmit);
+  form.append(postText, iconsContainer, tweetSubmit);
+  iconsContainer.append(imageIcon, gif, survey, smile, calendar);
   return divPost;
 };
 
@@ -171,12 +247,25 @@ export const genUsers = (user) => {
     value: "userContainer",
   });
 
-  const imgUser = createEl("img", "", { name: "src", value: user });
-  const userName = createEl("p", user, {
-    name: "class",
-    value: "UserNameFollow",
+  const imgUser = createEl("img", "", {
+    name: "src",
+    value: user?.image || "https://robohash.org/lama",
   });
-  const userNick = createEl("p", user, {
+
+  const userTextContainer = createEl("div", "", {
+    name: "class",
+    value: "userTextwrapper",
+  });
+  const userName = createEl(
+    "p",
+    (user?.firstName || "Nome") + (user?.lastName || "Utente"),
+    {
+      name: "class",
+      value: "UserNameFollow",
+    }
+  );
+
+  const userNick = createEl("p", `@${user?.username}` || "uses", {
     name: "class",
     value: "UserNickFollow",
   });
@@ -184,7 +273,8 @@ export const genUsers = (user) => {
     name: "class",
     value: "buttonFollow",
   });
-  userContainer.append(imgUser, userName, userNick, followBtn);
+  userTextContainer.append(userName, userNick);
+  userContainer.append(imgUser, userTextContainer, followBtn);
 
   return userContainer;
 };

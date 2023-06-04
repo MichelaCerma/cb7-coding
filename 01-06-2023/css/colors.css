@@ -5,4 +5,11 @@
   --bg-hover: rgba(239, 243, 244, 0.1);
   --user-nickname: #8b98a5;
   --heart-color: #f91880;
+  --heart-hv: #f9188129;
+  --comment-color: #1d9bf0;
+  --comment-hv: #1d9cf038;
+  --retweet-color: #00ba7c;
+  --retweet-hv: #00ba7c20;
+  --bg-sideB: #1e2732;
+  --input-bg: #273340;
 }

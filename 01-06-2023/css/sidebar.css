@@ -1,9 +1,161 @@
 aside {
-  height: 100vh;
-  width: 330px;
-  border: 1px solid lightgray;
+  height: 100%;
+  width: 386px;
+  padding-top: 18px;
+  padding-left: 37px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.searchBar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+  border-radius: 56px;
+  padding-left: 21px;
+  background-color: var(--input-bg);
+}
+.searchSvg {
+  fill: var(--user-nickname);
+  width: 18px;
+  height: 18px;
+}
+.searchInput {
+  width: 100%;
+
+  padding: 15px;
+  outline: none;
+  border: none;
+  font-size: 0.9rem;
+
+  color: var(--color-text);
+  border-radius: 56px;
+  background-color: var(--input-bg);
 }
 
+.searchInput::placeholder {
+  color: var(--user-nickname);
+  opacity: 1;
+}
+.trends {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-radius: 20px;
+  background-color: var(--bg-sideB);
+}
+.trend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.TrendsTitle {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.typeText,
+.numtweets {
+  font-size: 0.8rem;
+  color: var(--user-nickname);
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.hashtag {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.genre {
+}
+.genre::after {
+  content: "";
+  position: relative;
+  width: 2px;
+  margin: 0px;
+  top: -4px;
+  left: 5px;
+  display: inline-block;
+  border-radius: 50%;
+  height: 2px;
+  background-color: var(--user-nickname);
+}
+.trending {
+}
+
+.wToFollow {
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--bg-sideB);
+  border-radius: 20px;
+  padding: 15px;
+}
+.wTotitle {
+  padding-bottom: 20px;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+.wToUsers {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.userContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.userContainer img {
+  width: 45px;
+  height: 45px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.userTextwrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 10px;
+}
+.UserNameFollow {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.UserNickFollow {
+  font-size: 0.9rem;
+  color: var(--user-nickname);
+}
+.buttonFollow {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  font-weight: 600;
+  border-radius: 22px;
+  padding: 8px 15px;
+}
 @media all and (max-width: 987px) {
   aside {
     display: none;

@@ -9,9 +9,13 @@ main {
   height: 100%;
   border: 0.1px solid #b8b8b84f;
   border-bottom: 0;
-  /* background-color: green; */
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(10px);
+
   cursor: pointer;
 }
+
 .home {
   display: flex;
   justify-content: start;
@@ -51,7 +55,6 @@ main {
 
 .active {
   color: var(--color-text);
-
   font-weight: 700;
 }
 
@@ -73,6 +76,7 @@ main {
   padding: 10px;
   display: flex;
   width: 100%;
+
   border: 0.1px solid #b8b8b84f;
   border-bottom: 0;
 
@@ -86,15 +90,16 @@ main {
   margin-right: 10px;
 }
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
 }
 .InputPost {
-  padding-top: 10px;
+  padding-top: 8px;
   width: 100%;
-  height: 30px;
+  height: 34px;
   font-size: 1.3rem;
 
   color: var(--color-text);
@@ -106,6 +111,51 @@ main {
   color: var(--user-nickname);
   opacity: 1;
 }
+.PostIcons {
+  position: absolute;
+  bottom: 0;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3px;
+}
+.imageIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-size: 14px 14px;
+  transition: all 0.35s;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../assets/icons/image.svg);
+}
+.imageIcon:hover,
+.gif:hover,
+.survey:hover,
+.smile:hover,
+.calendar:hover {
+  background-color: var(--comment-hv);
+}
+.gif {
+  background-size: 18px 19px;
+  background-image: url(../assets/icons/gif.svg);
+}
+.survey {
+  background-size: 17px 18px;
+  transform: scaleX(-1);
+  background-image: url(../assets/icons/survey.svg);
+}
+.smile {
+  background-size: 16px 18px;
+  background-image: url(../assets/icons/smile.svg);
+}
+.calendar {
+  background-size: 18px 19px;
+  background-image: url(../assets/icons/calendar.svg);
+}
+
 .tweetSubmit {
   width: fit-content;
   border-radius: 51px;
@@ -129,6 +179,7 @@ main {
   flex-direction: row;
   padding: 13px;
   width: 100%;
+  cursor: pointer;
   height: 100%;
   gap: 12px;
   transition: all 0.35s;
@@ -159,6 +210,7 @@ main {
   display: flex;
   padding-right: 6px;
   flex-direction: row;
+  z-index: -1;
   justify-content: space-between;
   align-items: center;
 }
@@ -197,41 +249,91 @@ main {
 .fa-solid.fa-ellipsis {
   color: var(--user-nickname);
 }
+
 .postText {
   padding-right: 4%;
   width: 100%;
   height: 100%;
 }
 .reactionsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: center;
-}
-.heartContainer {
+  position: relative;
+  color: var(--user-nickname);
+  left: -11px;
+  font-size: 0.9rem;
+
   display: flex;
   gap: 10px;
-
-  justify-content: center;
-
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
-.heart {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
 
-  background-image: url('data:image/svg+xml,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" fill="%23e7e9ea"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/></svg>');
+.iconC {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 39px;
+  height: 38px;
+  border-radius: 100%;
   object-fit: contain;
-  background-size: 20px 20px;
+  transition: all 0.35s;
   background-repeat: no-repeat;
   background-position: center center;
 }
-
-.heartText:hover,
-.heart:hover {
+.comment {
+  background-image: url(../assets/icons/comment.svg);
+  background-size: 18px 18px;
+}
+.rt {
+  background-image: url(../assets/icons/rt.svg);
+  background-size: 19px 19px;
+}
+.heart {
+  background-image: url(../assets/icons/heart.svg);
+  background-size: 16px 16px;
+}
+.visual {
+  background-image: url(../assets/icons/visual.svg);
+  background-size: 21px 21px;
+}
+.share {
+  background-image: url(../assets/icons/share.svg);
+  background-size: 18px 18px;
 }
 
-.heartText:hover {
+.commentContainer:hover .comment {
+  background-color: var(--comment-hv);
+  background-image: url(../assets/icons/comment-hv.svg);
+}
+.commentContainer:hover .commentText {
+  color: var(--comment-color);
+}
+.rtContainer:hover .rtText {
+  color: var(--retweet-color);
+}
+.rtContainer:hover .rt {
+  background-image: url(../assets/icons/rt-hv.svg);
+  background-color: var(--retweet-hv);
+}
+.heartContainer:hover .heart {
+  background-image: url(../assets/icons/heart-hv.svg);
+  background-color: var(--heart-hv);
+}
+.heartContainer:hover .heartText {
   color: var(--heart-color);
+}
+.visualContainer:hover .visual {
+  background-color: var(--comment-hv);
+  background-image: url(../assets/icons/visual-hv.svg);
+}
+.visualContainer:hover .visualText {
+  color: var(--comment-color);
+}
+.shareContainer:hover .share {
+  background-color: var(--comment-hv);
+  background-image: url(../assets/icons/share-hv.svg);
 }

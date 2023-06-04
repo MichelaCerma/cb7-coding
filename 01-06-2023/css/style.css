@@ -22,6 +22,6 @@ body {
 
 @media all and (max-width: 1265px) {
   body {
-    margin: 0 2% 0 0;
+    margin-right: 2%;
   }
 }
